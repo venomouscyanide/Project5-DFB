@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',#3rd party
     'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
+
 ]
 
 AUTH_USER_MODEL='users.CustomUser'
@@ -124,3 +127,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL='home'
 LOGOUT_REDIRECT_URL='home'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
