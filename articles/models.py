@@ -18,3 +18,20 @@ class Article(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('article_detail',args=[str(self.id)])
+		#to know which url to go to. Go to article of that particular
+		#pk
+
+class Comment(models.Model):
+	article=models.ForeignKey(Article,
+		on_delete=models.CASCADE,
+		related_name='comments',)
+	author=models.ForeignKey(get_user_model(),
+		on_delete=models.CASCADE)
+	comment=models.CharField(max_length=130)
+
+
+	def __str__(self):
+		return(self.comment)
+
+	def get_absolute_url(self):
+		return('article_list')
